@@ -16,9 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         Auth.configure(crypto: DefaultCryptoProvider())
         
         let metadata = AppMetadata(
-            name: "Swift Dapp",
-            description: "WalletConnect DApp sample",
-            url: "wallet.connect",
+            name: "BRX by Breathonics",
+            description: "Enter story mode by connecting your wallet",
+            url: "breathonics.com",
             icons: ["https://avatars.githubusercontent.com/u/37784886"]
         )
         

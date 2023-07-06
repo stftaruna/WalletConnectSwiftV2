@@ -15,9 +15,7 @@ class SelectChainViewController: UIViewController, UITableViewDataSource {
     private var publishers = [AnyCancellable]()
 
     let chains = [
-        Chain(name: "Ethereum", id: "eip155:1"),
-        Chain(name: "Polygon", id: "eip155:137"),
-        Chain(name: "Solana", id: "solana:4sGjMW1sUnHzSxGspuhpqLDx6wiyjNtZ")
+        Chain(name: "Ethereum", id: "eip155:1")
     ]
 
     override func viewDidLoad() {
@@ -36,34 +34,11 @@ class SelectChainViewController: UIViewController, UITableViewDataSource {
     private func connect() {
         print("[PROPOSER] Connecting to a pairing...")
         let namespaces: [String: ProposalNamespace] = [
-            "eip155": ProposalNamespace(
-                chains: [
-                    Blockchain("eip155:137")!
-                ],
-                methods: [
-                    "eth_sendTransaction",
-                    "personal_sign",
-                    "eth_signTypedData"
-                ], events: []
-            ),
             "eip155:1": ProposalNamespace(
                 methods: [
-                    "eth_sendTransaction",
-                    "personal_sign",
-                    "eth_signTypedData"
+                    "personal_sign"
                 ],
                 events: []
-            )
-        ]
-        let optionalNamespaces: [String: ProposalNamespace] = [
-            "solana": ProposalNamespace(
-                chains: [
-                    Blockchain("solana:4sGjMW1sUnHzSxGspuhpqLDx6wiyjNtZ")!
-                ],
-                methods: [
-                    "solana_signMessage",
-                    "solana_signTransaction"
-                ], events: []
             )
         ]
         let sessionProperties: [String: String] = [
@@ -73,7 +48,6 @@ class SelectChainViewController: UIViewController, UITableViewDataSource {
         Task {
             WalletConnectModal.set(sessionParams: .init(
                 requiredNamespaces: namespaces,
-                optionalNamespaces: optionalNamespaces,
                 sessionProperties: sessionProperties
             ))
             

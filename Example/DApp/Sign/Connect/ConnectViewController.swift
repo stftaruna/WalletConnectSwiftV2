@@ -85,38 +85,15 @@ class ConnectViewController: UIViewController, UITableViewDataSource, UITableVie
         let requiredNamespaces: [String: ProposalNamespace] = [
             "eip155": ProposalNamespace(
                 chains: [
-                    Blockchain("eip155:1")!,
-                    Blockchain("eip155:137")!
+                    Blockchain("eip155:1")!
                 ],
                 methods: [
-                    "eth_sendTransaction",
-                    "personal_sign",
-                    "eth_signTypedData"
-                ], events: []
-            ),
-            "solana": ProposalNamespace(
-                chains: [
-                    Blockchain("solana:4sGjMW1sUnHzSxGspuhpqLDx6wiyjNtZ")!
-                ],
-                methods: [
-                    "solana_signMessage",
-                    "solana_signTransaction"
-                ], events: []
-            )
-        ]
-        let optionalNamespaces: [String: ProposalNamespace] = [
-            "eip155:42161": ProposalNamespace(
-                methods: [
-                    "eth_sendTransaction",
-                    "eth_signTransaction",
-                    "get_balance",
                     "personal_sign"
-                ],
-                events: ["accountsChanged", "chainChanged"]
+                ], events: []
             )
         ]
         Task {
-            _ = try await Sign.instance.connect(requiredNamespaces: requiredNamespaces, optionalNamespaces: optionalNamespaces, topic: pairingTopic)
+            _ = try await Sign.instance.connect(requiredNamespaces: requiredNamespaces, topic: pairingTopic)
             connectWithExampleWallet()
         }
     }
