@@ -21,10 +21,10 @@ final class SignCoordinator {
         navigationController.tabBarItem = tabBarItem
 
         let metadata = AppMetadata(
-            name: "Swift Dapp hello",
-            description: "WalletConnect DApp sample",
-            url: "wallet.connect",
-            icons: ["https://avatars.githubusercontent.com/u/37784886"])
+            name: "BRX by Breathonics",
+            description: "Enter story mode by connecting your wallet",
+            url: "breathonics.com",
+            icons: ["https://firebasestorage.googleapis.com/v0/b/breathonics.appspot.com/o/Breathonics_Logo_Icon_Black_W-Space.png?alt=media&token=205f8963-9461-4211-b732-01b7aee84a37"])
 
         Pair.configure(metadata: metadata)
 #if DEBUG
