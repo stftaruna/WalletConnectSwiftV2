@@ -21,7 +21,7 @@ final class SignCoordinator {
         navigationController.tabBarItem = tabBarItem
 
         let metadata = AppMetadata(
-            name: "Swift Dapp",
+            name: "Swift Dapp hello",
             description: "WalletConnect DApp sample",
             url: "wallet.connect",
             icons: ["https://avatars.githubusercontent.com/u/37784886"])

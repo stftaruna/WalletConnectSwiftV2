@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         Auth.configure(crypto: DefaultCryptoProvider())
         
         let metadata = AppMetadata(
-            name: "Swift Dapp",
+            name: "Swift Dapp heyo",
             description: "WalletConnect DApp sample",
             url: "wallet.connect",
             icons: ["https://avatars.githubusercontent.com/u/37784886"]
